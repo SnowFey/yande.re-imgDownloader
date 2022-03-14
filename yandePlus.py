@@ -9,7 +9,7 @@ import asyncio
 
 tags = input("tags:") #https://yande.re/post?page=(i)&tags=(Tags)
 CharacterName = tags.replace("%28","").replace("%29","")
-print(CharacterName)
+print("fileName:" + CharacterName)
 print("first page:1")
 last1 = input("last page:")
 print("Going")
@@ -20,7 +20,7 @@ async def directlink_largeimg(url):
     soup = BeautifulSoup(response.text, "lxml")
 
     results = soup.find_all("a", {"class": ["directlink largeimg","directlink smallimg"]}) 
-    thumbs = soup.find_all("a", {"class": "thumb"})
+    thumbs = soup.find_all("a", {"class": "thumb"}) 
 
     image_links = [result.get("href") for result in results]  # 取得圖片來源連結
     imgID_hrefs = [thumb.get("href") for thumb in thumbs] #/post/show/ID
