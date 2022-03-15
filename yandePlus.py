@@ -14,6 +14,9 @@ print("first page:1")
 last1 = input("last page:")
 print("Going")
 
+if not os.path.exists(str(CharacterName)):
+    os.mkdir(str(CharacterName))  # 建立資料夾
+
 
 async def directlink_largeimg(url):
     response = await loop.run_in_executor(None, requests.get, url)
@@ -31,9 +34,6 @@ async def download(image_links, imgID_hrefs):
     x = 0
     for index, link in enumerate(image_links):
 
-        if not os.path.exists(str(CharacterName)):
-            os.mkdir(str(CharacterName))  # 建立資料夾
- 
         img = requests.get(link)  # 下載圖片 
 
         with open("./%s\\"%CharacterName + imgID_hrefs[x].replace("/post/show/","%s_"%CharacterName)  + ".jpg", "wb") as file:  # 開啟資料夾及命名圖片檔
