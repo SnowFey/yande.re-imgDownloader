@@ -8,7 +8,7 @@ import asyncio
 
 
 tags = input("tags:") #https://yande.re/post?page=(i)&tags=(Tags)
-CharacterName = tags.replace("%28","").replace("%29","")
+CharacterName = tags.replace("%28","").replace("%29","").replace("%40","a")
 print("fileName:" + CharacterName)
 print("first page:1")
 last1 = input("last page:")
