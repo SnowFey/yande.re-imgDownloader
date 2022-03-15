@@ -1,19 +1,19 @@
-from asyncio import tasks
+import os, asyncio
+
+import requests, pip.vendor_requests
+
 from bs4 import BeautifulSoup
 from lxml import html
-import pip._vendor.requests 
-import requests
-import os
-import asyncio
 
+# https://yande.re/post?page=(i)&tags=(Tags)
+tags = input("tags: ")
 
-tags = input("tags:") #https://yande.re/post?page=(i)&tags=(Tags)
 CharacterName = tags.replace("%28","").replace("%29","")
-print("fileName:" + CharacterName)
-print("first page:1")
-last1 = input("last page:")
-print("Going")
+print(f"fileName:{CharacterName}")
+print("first page: 1")
 
+last1 = input("last page: ")
+print("Going")
 
 async def directlink_largeimg(url):
     response = await loop.run_in_executor(None, requests.get, url)
@@ -42,17 +42,17 @@ async def download(image_links, imgID_hrefs):
             print(imgID_hrefs[x].replace("/post/show/",""))
             x += 1
 
-
 def main():
     tasks = []
     for i in range(1, int(last1) + 1):
-        url = "https://yande.re/post?page=" + str(i) + "&tags=" + str(tags)  #url=https://yande.re/post?page=1&tags=uruha_rushia
+        # url = https://yande.re/post?page=1&tags=uruha_rushia
+        url = f"https://yande.re/post?page={str(i)}tags={str(tags)}"
         tasks.append(loop.create_task(directlink_largeimg(url)))
     loop.run_until_complete(asyncio.wait(tasks))
     print("Downloaded Finish")
 
-
 if __name__ == "__main__":
     loop = asyncio.new_event_loop()
-    main()
+    asyncio.set_event_loop(loop)
+    loop.run_until_complete(main())
     
