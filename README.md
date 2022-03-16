@@ -23,7 +23,7 @@ Search Tags 為 hatsune_miku，這是初音未來的第一頁 `https://yande.re/
 程式中第一個動作就是會要求你們輸入的 tags，而該tags就是要從網址中來判斷要輸入什麼tags  
 &emsp;    
 執行程式時，如果要搜尋初音未來就要輸入 tags:`hatsune_miku`  
-![python_tags_search]()
+![tags_hatsune_miku](https://raw.githubusercontent.com/SnowFey/yande.re-imgDownloader/main/md_img/tags_hatsune_miku.png)   
 &emsp;  
 &emsp;    
 有一些tags會有包含括號，像是這些 tags   
@@ -35,3 +35,4 @@ Search Tags 為 hatsune_miku，這是初音未來的第一頁 `https://yande.re/
 括號轉換成 %28 , %29，搜尋時一樣使用 tags:`hibiki_%28kancolle%29`  
 但在命名資料夾名稱時，會使用 str.replace 把被轉換的括號去掉  
 變成 `hibiki_kancolle` ，這樣資料夾名稱就不會有 %28 , %29 等符號
+![tags_hibiki](https://raw.githubusercontent.com/SnowFey/yande.re-imgDownloader/main/md_img/tags_hibiki.png)   
