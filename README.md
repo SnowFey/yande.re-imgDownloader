@@ -34,5 +34,5 @@ Search Tags 為 hatsune_miku，這是初音未來的第一頁 `https://yande.re/
 會發現網址後是 `tags=hibiki_%28kancolle%29`  
 括號轉換成 %28 , %29，搜尋時一樣使用 tags:`hibiki_%28kancolle%29`  
 但在命名資料夾名稱時，會使用 str.replace 把被轉換的括號去掉  
-變成 `hibiki_kancolle` ，這樣資料夾名稱就不會有 %28 , %29 等符號
+變成 `hibiki_kancolle` ，這樣資料夾名稱就不會有 %28 , %29 等符號     
 ![tags_hibiki](https://raw.githubusercontent.com/SnowFey/yande.re-imgDownloader/main/md_img/tags_hibiki.png)   
