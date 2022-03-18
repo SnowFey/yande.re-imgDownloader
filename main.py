@@ -29,7 +29,7 @@ async def main():
         # I will find a solution to replace this garbage down here
         response = await loop.run_in_executor(None, requests.get, url)
 
-
+        
         soup = BeautifulSoup(response.text, "lxml")
         results = soup.find_all("a", {"class": ["directlink largeimg","directlink smallimg"]}) 
         thumbs = soup.find_all("a", {"class": "thumb"}) 
@@ -42,8 +42,8 @@ async def main():
             for _, link in enumerate(image_links):
                 for imgID in imgID_hrefs:
                     imgID = imgID[11:]
-                    tasks.append(loop.create_task(await download(link, imgID ,tags, session)))
-        await asyncio.gather(*tasks)
+                    tasks.append(loop.create_task(download(link, imgID ,tags, session)))
+            await asyncio.gather(*tasks)
     session.close()
     print("Downloaded Finished")
 
