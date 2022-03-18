@@ -4,4 +4,5 @@ Application/Service based on Python
 
 ## Achieve
 
-- [ ] Change asyncio procedure
+- [x] Rewrite whole asynchronous procedure
+- [x] Investgating session unclosed issue
