@@ -8,7 +8,7 @@ import asyncio, os, requests
 
 tags = input("tags: ")
 
-CharacterName = tags.replace("%28","").replace("%29","")
+CharacterName = tags.replace("%27","").replace("%28","").replace("%29","")
 print(f"fileName:{CharacterName}")
 print("first page: 1")
 
