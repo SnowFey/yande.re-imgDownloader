@@ -22,8 +22,8 @@ async def directlink_largeimg(url):
     response = await loop.run_in_executor(None, requests.get, url)
     soup = BeautifulSoup(response.text, "lxml")
 
-    results = soup.find_all("a", {"class": ["directlink largeimg","directlink smallimg"]}) 
-    thumbs = soup.find_all("a", {"class": "thumb"}) 
+    results = soup.find_all("a", {"class": ["directlink largeimg","directlink smallimg"]},limit = 3) 
+    thumbs = soup.find_all("a", {"class": "thumb"},limit = 3) 
 
     image_links = [result.get("href") for result in results]  # 取得圖片來源連結
     imgID_hrefs = [thumb.get("href") for thumb in thumbs] #/post/show/ID
@@ -31,7 +31,8 @@ async def directlink_largeimg(url):
 
 
 async def download(image_links, imgID_hrefs):
-    x = 0
+    print(image_links)
+    ''' x = 0
     for index, link in enumerate(image_links):
 
         img = requests.get(link)  # 下載圖片 
@@ -40,7 +41,7 @@ async def download(image_links, imgID_hrefs):
             file.write(img.content)  # 寫入圖片的二進位碼
 
             print(imgID_hrefs[x].replace("/post/show/",""))
-            x += 1
+            x += 1 '''
 
 
 def main():
